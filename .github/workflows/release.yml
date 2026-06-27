@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -16,20 +20,42 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: gradle
 
-      - name: Decode keystore
+      - name: Decode release keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
           SIGNING_PROPERTIES: ${{ secrets.SIGNING_PROPERTIES }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > trippermate-release.jks
-          echo "$SIGNING_PROPERTIES" > signing.properties
+          if [ -n "$KEYSTORE_BASE64" ] && [ -n "$SIGNING_PROPERTIES" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > trippermate-release.jks
+            echo "$SIGNING_PROPERTIES" > signing.properties
+            echo "Release signing configured ✓"
+          else
+            echo "::warning::KEYSTORE_BASE64 or SIGNING_PROPERTIES not set — APK will be debug-signed"
+          fi
 
       - name: Build release APK
         run: chmod +x gradlew && ./gradlew :app:assembleRelease --no-daemon
 
+      - name: Rename APK
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION=$(grep 'versionName' app/build.gradle.kts | head -1 | sed -n 's/.*"\([^"]*\)".*/\1/p')
+          fi
+          cp app/build/outputs/apk/release/app-release.apk "TripperMate-v${VERSION}.apk"
+          echo "Built TripperMate-v${VERSION}.apk"
+          shasum -a 256 "TripperMate-v${VERSION}.apk" | cut -c1-12 > sha256.txt
+
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: app/build/outputs/apk/release/app-release.apk
-          generate_release_notes: true
+          files: |
+            TripperMate-v*.apk
+          body_path: .github/release-notes-template.md
+          generate_release_notes: false
+          overwrite_files: true
+          draft: false
+          fail_on_unmatched_files: true

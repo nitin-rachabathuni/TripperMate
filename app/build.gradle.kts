@@ -45,8 +45,8 @@ android {
         minSdk = 29
         targetSdk = 36
         // TripperMate v1.0.0 — community fork of NorthStar with stability + nav fixes.
-        versionCode = 100
-        versionName = "1.0.0"
+        versionCode = 101
+        versionName = "1.0.1"
 
         // Test-channel telemetry: ride/connection diagnostics upload to Firestore so logs can be
         // pulled remotely (no adb) while iterating on test builds. MUST be flipped to "false" for
