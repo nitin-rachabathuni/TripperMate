@@ -4,6 +4,7 @@
 
 ### Cool navigation for your Royal Enfield Tripper dash — phone screen **OFF**, battery **ON**
 
+[![Website](https://img.shields.io/badge/Website-trippermate.vercel.app-orange?style=for-the-badge)](https://trippermate.vercel.app)
 [![Release](https://img.shields.io/github/v/release/nitin-rachabathuni/TripperMate?style=for-the-badge&color=orange&label=Download)](https://github.com/nitin-rachabathuni/TripperMate/releases/latest)
 [![CI](https://img.shields.io/github/actions/workflow/status/nitin-rachabathuni/TripperMate/ci.yml?branch=main&style=for-the-badge&label=Build)](https://github.com/nitin-rachabathuni/TripperMate/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/nitin-rachabathuni/TripperMate?style=for-the-badge&color=blue)](LICENSE)
@@ -11,7 +12,7 @@
 
 **Himalayan 450 · Guerrilla 450 · Scram 411 · any Tripper `RE_*` dash**
 
-[⬇️ Download APK](https://github.com/nitin-rachabathuni/TripperMate/releases/latest) · [Quick start](#-quick-start) · [Features](#-features) · [Credits](#-credits)
+[⬇️ Download APK](https://github.com/nitin-rachabathuni/TripperMate/releases/latest) · [🌐 Website](https://trippermate.vercel.app) · [Quick start](#-quick-start) · [Features](#-features) · [Credits](#-credits)
 
 ---
 

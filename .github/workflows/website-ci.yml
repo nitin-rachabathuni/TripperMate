@@ -1,0 +1,29 @@
+name: Website CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "website/**"
+  pull_request:
+    paths:
+      - "website/**"
+
+defaults:
+  run:
+    working-directory: website
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://trippermate.vercel.app

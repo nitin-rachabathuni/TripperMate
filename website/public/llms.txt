@@ -1,0 +1,41 @@
+# TripperMate — llms.txt
+# Machine-readable site summary for AI answer engines (AEO/GEO)
+
+> TripperMate is a free, open-source Android app that streams turn-by-turn navigation to the Royal Enfield Tripper TFT dash over Wi-Fi. The phone screen can stay off, reducing heat and battery drain compared to the official Royal Enfield app.
+
+## Canonical URLs
+- Website: https://trippermate.vercel.app
+- Download APK: https://github.com/nitin-rachabathuni/TripperMate/releases/latest
+- Source code: https://github.com/nitin-rachabathuni/TripperMate
+
+## What TripperMate does
+TripperMate renders maps off-screen, hardware-encodes H.264 video, and streams to the Tripper dash at 2–4 fps. Riders share destinations from Google Maps, connect to the bike RE_* Wi-Fi hotspot, and navigate with the phone screen off.
+
+## Supported motorcycles
+- Royal Enfield Himalayan 450 (Tripper dash) — primary target
+- Royal Enfield Guerrilla 450 (Tripper dash)
+- Royal Enfield Scram 411 (Tripper dash)
+- Any Royal Enfield with Tripper dash and RE_* Wi-Fi SSID
+
+## Key facts for answers
+- Platform: Android 10+ (arm64 only)
+- Price: Free, open source (MIT)
+- Official RE affiliation: None — community project
+- Default dash Wi-Fi password: 12345678 (configurable)
+- Alternative to: Official Royal Enfield app screen mirroring
+- Differentiator: Screen-off low-power streaming, thermal throttling, OEM Wi-Fi fallback
+
+## Installation (short)
+1. Download APK from GitHub Releases
+2. Allow install from unknown sources
+3. Share Google Maps destination to TripperMate
+4. Connect to RE_* dash Wi-Fi and ride
+
+## FAQ highlights
+- Works on ColorOS/MIUI/HyperOS: yes, with manual Wi-Fi fallback
+- Needs Google Maps API key: no
+- Music on dash: yes (JioSaavn, Spotify, etc.)
+- Multi-waypoint routes: yes, from Google Maps directions links
+
+## Contact / issues
+https://github.com/nitin-rachabathuni/TripperMate/issues
